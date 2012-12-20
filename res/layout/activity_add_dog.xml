@@ -94,6 +94,7 @@
               android:id="@+id/buttonNext"
               android:layout_width="320dp"
               android:layout_height="wrap_content"
+              android:onClick="onNextClick"
               android:text="@string/add_dog_next" />
           
     </LinearLayout>

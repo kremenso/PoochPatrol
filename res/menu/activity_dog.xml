@@ -1,6 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_settings"
-        android:title="@string/menu_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
+    <item android:id="@+id/itemDogList" android:title="@string/dogs_list" android:titleCondensed="@string/dogs_list"></item>
+    <item android:id="@+id/itemAddDog" android:title="@string/add_dog" android:titleCondensed="@string/add_dog"></item>
+    <item android:id="@+id/showWalk" android:title="@string/show_walk" android:titleCondensed="@string/add_dog"></item>
 </menu>

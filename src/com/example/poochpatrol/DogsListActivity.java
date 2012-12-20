@@ -2,23 +2,26 @@ package com.example.poochpatrol;
 
 
 
+import java.util.List;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.poochpatrol.adapter.DogAdapter;
+import com.example.poochpatrol.database.DogDatabaseHandler;
 import com.example.poochpatrol.model.Dog;
-import com.example.poochpatrol.model.DogsList;
 
 public class DogsListActivity extends Activity {
 	
-	public static DogsList dogsList;
+	public static List<Dog> dogsList;
 	ListView dogListView;
 	
     @Override
@@ -30,8 +33,13 @@ public class DogsListActivity extends Activity {
         setContentView(R.layout.activity_dogs_list);
         
         try {
-        	 Bundle bundle = getIntent().getExtras();
-             dogsList = (DogsList) bundle.getParcelable("dogs");
+        	DogDatabaseHandler db = new DogDatabaseHandler(this);
+//        	 Bundle bundle = getIntent().getExtras();
+        	dogsList = db.getAllDogs();
+        	for(int i = 0; i<dogsList.size(); i++) {
+        		Log.v("DOG", dogsList.get(i).toString());
+        	}
+//             dogsList = (DogsList) bundle.getParcelable("dogs");
              Log.v("DOGS LIST", dogsList.toString());
         } catch (Exception e) {
         	Log.v("ERROR", "dogs bundle empty");
@@ -53,9 +61,30 @@ public class DogsListActivity extends Activity {
         return true;
     }
     
-    public void onClick(View v) {
-    	Log.v("ON", "CLICK");
+    public void goToDog(String guid) { 	
+    	Bundle b = new Bundle();
+		b.putString("guid", guid);
+		Intent intent = new Intent(this, DogActivity.class);
+		intent.putExtras(b);
+		startActivity(intent);
     }
 
+    public void onBackPressed() {
+  	   Intent intent = new Intent(this, DogsListActivity.class);
+  	   startActivity(intent);
+     }
+     
+     public boolean onOptionsItemSelected(MenuItem item) {
+         // Handle item selection
+         switch (item.getItemId()) {
+             case R.id.itemAddDog:
+             	Intent addDogIntent = new Intent(this, AddDogActivity.class);
+             	startActivity(addDogIntent);
+                 return true;
+             default:
+             	Log.v("MENU", "DEFAULT");
+                 return super.onOptionsItemSelected(item);
+         }
+     }
 
 }

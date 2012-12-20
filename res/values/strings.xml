@@ -21,5 +21,9 @@
     <string name="make_photos">Make photo</string>
     <string name="title_activity_dogs_list">DogsListActivity</string>
     <string name="title_activity_authorize">AuthorizeActivity</string>
-
+    <string name="title_activity_image_loader">ImageLoaderActivity</string>
+    <string name="add_dog">Add dog</string>
+    <string name="dogs_list">Dogs list</string>
+    <string name="title_activity_route">RouteActivity</string>
+	<string name="show_walk">Show Walk</string>
 </resources>

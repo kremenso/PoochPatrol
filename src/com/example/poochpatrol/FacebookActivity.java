@@ -93,7 +93,6 @@ public class FacebookActivity extends Activity {
     	public void onCancel() {}
     	
     	
-    	
     }
     
     public void getUserInfo() {

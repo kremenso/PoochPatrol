@@ -10,13 +10,15 @@ public class Dog implements Parcelable {
 	private String breed;
 	private int age;
 	private String owner_uid;
+	private String image;
 
-	public Dog(String guid, String name, String breed, int age, String owner_uid) {
+	public Dog(String guid, String name, String breed, int age, String owner_uid, String image) {
 		this.guid = guid;
 		this.name = name;
 		this.breed = breed;
 		this.age = age;
 		this.owner_uid = owner_uid;
+		this.image = image;
 	}
 
 	public Dog(Parcel in) {
@@ -33,6 +35,7 @@ public class Dog implements Parcelable {
 		this.breed = in.readString();
 		this.age = in.readInt();
 		this.owner_uid = in.readString();
+		this.image = in.readString();
 	}
 
 	public String getGuid() {
@@ -54,6 +57,10 @@ public class Dog implements Parcelable {
 	public int getAge() {
 		return this.age;
 	}
+	
+	public String getImage() {
+		return this.image;
+	}
 
 	public int describeContents() {
 		return 0;
@@ -65,6 +72,7 @@ public class Dog implements Parcelable {
 		dest.writeString(this.getBreed());
 		dest.writeInt(this.getAge());
 		dest.writeString(this.getOwnerUid());
+		dest.writeString(this.getImage());
 
 	}
 
@@ -78,5 +86,10 @@ public class Dog implements Parcelable {
 			return null;
 		}
 	};
+	
+	public String toString() {
+		return "Name: " + this.name + ", Age:" 
+				+ this.age + ", Breed: " + this.breed + ", Image: " + this.image;
+	}
 
 }

@@ -19,35 +19,43 @@ public final class R {
         public static final int login_down=0x7f020005;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f07000e;
+        public static final int RelativeLayout1=0x7f070013;
         public static final int authorize_content=0x7f07000a;
         public static final int buttonNext=0x7f070009;
-        public static final int buttonPhotoBrowse=0x7f070013;
-        public static final int buttonPhotoShoot=0x7f070014;
+        public static final int buttonPhotoBrowse=0x7f070017;
+        public static final int buttonPhotoShoot=0x7f070018;
         public static final int carrerListView=0x7f07000b;
-        public static final int check=0x7f070019;
-        public static final int dogsListView=0x7f07000c;
+        public static final int check=0x7f07001e;
+        public static final int dogsListView=0x7f070011;
         public static final int editText1=0x7f070004;
         public static final int editTextDogsAge=0x7f070006;
         public static final int editTextDogsBreed=0x7f070008;
         public static final int imageView1=0x7f07000f;
         public static final int imageViewDog=0x7f070002;
-        public static final int label=0x7f070017;
-        public static final int layout=0x7f070010;
+        public static final int imageViewImage=0x7f07000d;
+        public static final int itemAddDog=0x7f070023;
+        public static final int itemDogList=0x7f070022;
+        public static final int label=0x7f07001c;
+        public static final int layout=0x7f070014;
         public static final int linearLayout1=0x7f070000;
-        public static final int menu_carrers_item=0x7f07001d;
-        public static final int menu_settings=0x7f07001c;
-        public static final int preview=0x7f070011;
-        public static final int progressBar1=0x7f07001a;
-        public static final int sub=0x7f070018;
-        public static final int surfaceView=0x7f070012;
-        public static final int textView=0x7f07000d;
-        public static final int textViewDialog=0x7f07001b;
-        public static final int textViewDogAge=0x7f070015;
-        public static final int textViewDogBreed=0x7f070016;
+        public static final int main=0x7f07001f;
+        public static final int mapview=0x7f070019;
+        public static final int menu_settings=0x7f070025;
+        public static final int preview=0x7f070015;
+        public static final int progressBar1=0x7f070020;
+        public static final int showWalk=0x7f070024;
+        public static final int sub=0x7f07001d;
+        public static final int surfaceView=0x7f070016;
+        public static final int textView=0x7f070012;
+        public static final int textViewAge=0x7f070010;
+        public static final int textViewBreed=0x7f07000e;
+        public static final int textViewDialog=0x7f070021;
+        public static final int textViewDogAge=0x7f07001b;
+        public static final int textViewDogBreed=0x7f07001a;
         public static final int textViewDogName=0x7f070003;
         public static final int textViewDogsAge=0x7f070005;
         public static final int textViewDogsBreed=0x7f070007;
+        public static final int textViewName=0x7f07000c;
         public static final int textViewPhoto=0x7f070001;
     }
     public static final class layout {
@@ -59,9 +67,11 @@ public final class R {
         public static final int activity_facebook=0x7f030005;
         public static final int activity_main=0x7f030006;
         public static final int activity_photo=0x7f030007;
-        public static final int dog=0x7f030008;
-        public static final int facebook_friend=0x7f030009;
-        public static final int progress_dialog_layout=0x7f03000a;
+        public static final int activity_route=0x7f030008;
+        public static final int dog=0x7f030009;
+        public static final int facebook_friend=0x7f03000a;
+        public static final int mapview=0x7f03000b;
+        public static final int progress_dialog_layout=0x7f03000c;
     }
     public static final class menu {
         public static final int activity_add_dog=0x7f060000;
@@ -71,9 +81,12 @@ public final class R {
         public static final int activity_dogs_list=0x7f060004;
         public static final int activity_facebook=0x7f060005;
         public static final int activity_main=0x7f060006;
-        public static final int activity_photo=0x7f060007;
+        public static final int activity_map=0x7f060007;
+        public static final int activity_photo=0x7f060008;
+        public static final int activity_route=0x7f060009;
     }
     public static final class string {
+        public static final int add_dog=0x7f040016;
         public static final int add_dog_dogs_age=0x7f04000c;
         public static final int add_dog_dogs_breed=0x7f04000d;
         public static final int add_dog_dogs_name=0x7f04000b;
@@ -82,19 +95,23 @@ public final class R {
         public static final int add_dog_title=0x7f040007;
         public static final int app_name=0x7f040000;
         public static final int browse_photos=0x7f040011;
+        public static final int dogs_list=0x7f040017;
         public static final int hello_world=0x7f040002;
         public static final int make_photos=0x7f040012;
         public static final int menu_carrer_title=0x7f040005;
         public static final int menu_carrer_title_condensed=0x7f040006;
         public static final int menu_settings=0x7f04000f;
+        public static final int show_walk=0x7f040019;
         public static final int title_activity_add_dog=0x7f040008;
         public static final int title_activity_authorize=0x7f040014;
         public static final int title_activity_carrer=0x7f040004;
         public static final int title_activity_dog=0x7f040009;
         public static final int title_activity_dogs_list=0x7f040013;
         public static final int title_activity_facebook=0x7f040003;
+        public static final int title_activity_image_loader=0x7f040015;
         public static final int title_activity_main=0x7f040001;
         public static final int title_activity_photo=0x7f040010;
+        public static final int title_activity_route=0x7f040018;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

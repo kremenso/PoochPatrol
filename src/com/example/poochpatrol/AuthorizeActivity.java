@@ -19,10 +19,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.example.poochpatrol.database.DogDatabaseHandler;
+import com.example.poochpatrol.loader.ImageLoader;
 import com.example.poochpatrol.loader.RESTLoader;
 import com.example.poochpatrol.loader.RESTLoader.RESTResponse;
 import com.example.poochpatrol.model.Dog;
-import com.example.poochpatrol.model.DogsList;
 import com.example.poochpatrol.setting.ServerUrl;
 import com.facebook.android.Util;
 
@@ -73,19 +74,28 @@ public class AuthorizeActivity extends FragmentActivity implements
 			try {
 				JSONObject result = Util.parseJson(json);
 				JSONArray dogs_json_array = result.getJSONArray("cared_dogs");
-				DogsList dogs = new DogsList();
-
+				DogDatabaseHandler db = new DogDatabaseHandler(this);
+				
+	
 				for (int i = 0; i < dogs_json_array.length(); i++) {
 					JSONObject row = dogs_json_array.getJSONObject(i);
-					dogs.add(new Dog(row.getString("guid"), row
-							.getString("name"), row.getString("breed"), row
-							.getInt("age"), row.getString("owner_uid")));
+					JSONObject dog_image = Util.parseJson(row.getString("image"));
+					
+					
+					Dog dog = new Dog(row.getString("guid"), row.getString("name"), 
+							row.getString("breed"), row.getInt("age"), 
+							row.getString("owner_uid"), dog_image.getString("url"));
+					
+					
+					if(dog.getImage() != "null") {
+					  ImageLoader imageLoader = new ImageLoader(dog);
+					
+					}
+					
+					db.addDog(dog);
+					
 				}
-				Bundle b = new Bundle();
-				b.putParcelable("dogs", dogs);
-
 				Intent intent = new Intent(this, DogsListActivity.class);
-				intent.putExtras(b);
 				startActivity(intent);
 
 			} catch (JSONException e) {

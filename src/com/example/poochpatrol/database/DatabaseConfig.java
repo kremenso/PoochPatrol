@@ -1,6 +1,6 @@
 package com.example.poochpatrol.database;
 
 public class DatabaseConfig {
-	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_NAME = "poochPatrol";
+	public static final int DATABASE_VERSION = 1;
+	public static final String DATABASE_NAME = "poochPatrol";
 }

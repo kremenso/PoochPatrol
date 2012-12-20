@@ -2,8 +2,9 @@ package com.example.poochpatrol.setting;
 
 public class ServerUrl {
 //	SERVER NAME
-	public static final String  SERVER_URL = "192.168.30.105:3000";
+	public static final String  SERVER_URL = "pooch-server.herokuapp.com";//"192.168.0.102:3000";
 
+	
 	
 //	CONTROLLER NAMES
 	public static final String USERS = "users";

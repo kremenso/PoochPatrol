@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.poochpatrol.DogActivity;
+import com.example.poochpatrol.DogsListActivity;
 import com.example.poochpatrol.R;
 import com.example.poochpatrol.model.Dog;
 
@@ -47,9 +48,7 @@ public class DogAdapter extends ArrayAdapter<Dog> {
 			view.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
-				
-					
-					Log.v("CLCIK", list.get(position).getGuid());
+					((DogsListActivity) context).goToDog(list.get(position).getGuid());
 				}
 			});
 			view.setTag(viewHolder);

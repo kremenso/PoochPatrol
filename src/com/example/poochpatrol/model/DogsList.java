@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
 public class DogsList extends ArrayList<Dog> implements Parcelable {
 
@@ -35,7 +38,7 @@ public class DogsList extends ArrayList<Dog> implements Parcelable {
 
         for (int i = 0; i < size; i++) {
         	Dog d = new Dog(in.readString(), in.readString(), 
-        			in.readString(), in.readInt(), in.readString());
+        			in.readString(), in.readInt(), in.readString(), in.readString());
             this.add(d);
          }
 	}
@@ -50,6 +53,7 @@ public class DogsList extends ArrayList<Dog> implements Parcelable {
             dest.writeString(dog.getBreed());
             dest.writeInt(dog.getAge());
             dest.writeString(dog.getOwnerUid());
+            dest.writeString(dog.getImage());
         }
 	}
 
