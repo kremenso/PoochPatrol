@@ -125,7 +125,7 @@ public class DogDatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_DOGS, KEY_GUID + " = ?",
                 new String[] { String.valueOf(dog.getGuid()) });
-        db.close();
+        //db.close();
     }
 	
 	public int getCount() {

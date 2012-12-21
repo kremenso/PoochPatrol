@@ -25,5 +25,7 @@
     <string name="add_dog">Add dog</string>
     <string name="dogs_list">Dogs list</string>
     <string name="title_activity_route">RouteActivity</string>
-	<string name="show_walk">Show Walk</string>
+    <string name="show_walk">Show Walk</string>
+    <string name="title_activity_file_browser">FileBrowserActivity</string>
+
 </resources>

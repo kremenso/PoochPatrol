@@ -7,6 +7,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.poochpatrol.overlay.MapOverlay;
 import com.google.android.maps.GeoPoint;
@@ -32,22 +33,22 @@ public class RouteActivity extends MapActivity {
 		// Configure the Map
 		mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setBuiltInZoomControls(true);
-		mapView.setSatellite(true);
+		mapView.setSatellite(false);
 		mapController = mapView.getController();
 		mapController.setZoom(14); // Zoon 1 is world view
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
-				0, new GeoUpdateHandler());
-				myLocationOverlay = new MyLocationOverlay(this, mapView);
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new GeoUpdateHandler());
+		myLocationOverlay = new MyLocationOverlay(this, mapView);
+		
 		mapView.getOverlays().add(myLocationOverlay);
 		myLocationOverlay.runOnFirstFix(new Runnable() {
 			public void run() {
-				mapView.getController().animateTo(
-						myLocationOverlay.getMyLocation());
+				Log.v("MY LOCATION", ""+ myLocationOverlay.getMyLocation());
+				mapView.getController().animateTo(myLocationOverlay.getMyLocation());
 			}
 		});
 
-		Log.v("MY LOCATION", ""+ myLocationOverlay.getMyLocation());
+		
 		Drawable drawable = this.getResources().getDrawable(R.drawable.close);
 		itemizedoverlay = new MapOverlay(this, drawable);
 		createMarker();
@@ -62,21 +63,25 @@ public class RouteActivity extends MapActivity {
 
 		
 		public void onLocationChanged(Location location) {
-			
-			int lat = (int) (location.getLatitude() * 1E6);
-			int lng = (int) (location.getLongitude() * 1E6);
-			GeoPoint point = new GeoPoint(lat, lng);
-			createMarker();
-			mapController.animateTo(point); // mapController.setCenter(point);
-
+			if (location != null) {
+				double lat = location.getLatitude();
+				double lng = location.getLongitude();
+				
+				GeoPoint point= new GeoPoint((int) lat * 1000000, (int) lng * 1000000);
+				mapController.animateTo(point);
+			}
 		}
 
 	
 		public void onProviderDisabled(String provider) {
+			  Toast.makeText(getApplicationContext(), "Gps Disabled",
+		                Toast.LENGTH_SHORT).show();
 		}
 
 
 		public void onProviderEnabled(String provider) {
+			  Toast.makeText(getApplicationContext(), "Gps Enabled",
+		                Toast.LENGTH_SHORT).show();
 		}
 
 		

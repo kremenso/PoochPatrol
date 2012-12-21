@@ -32,6 +32,7 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback {
 	private String requestClassName;
 	
 	
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -130,6 +131,15 @@ public class PhotoActivity extends Activity implements SurfaceHolder.Callback {
 	
 	public void onCameraPhotoClick(View view) {
 		camera.takePicture(null, null, new PhotoHandler(this));
+	}
+	
+	public void onBrowseClick(View view) {
+		Intent fileBrowserIntent = new Intent(this, FileBrowserActivity.class);
+		Bundle b = new Bundle();
+		b.putString("activity", AddDogActivity.class.getName());
+		fileBrowserIntent.putExtras(b);
+    	startActivity(fileBrowserIntent);
+        
 	}
 	
 	public void backToRequestActvity(String photo_src){
